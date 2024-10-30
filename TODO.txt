@@ -1,0 +1,101 @@
+####################################################################
+# This file contains a list of enhancements and bug fixes that are
+# planned.
+####################################################################
+
+GUTENBERG COMPAT
+
+Add Tutorial link to block properties editor
+
+Replace -> translate function with __ signatures so that makepot
+will pick them up without customization.
+
+STANDARD
+
+  Change Add Events plugin operation so that if add is not enabled, it
+  displays information to the developer on how to do that.
+
+  Add To Calendar button to integrate to Google or other calendars.
+
+  Integrate w/ Google Docs and Microsoft One Drive to allow people to select
+  or link to those docs.
+
+  It looks like we might need a switch to disable enqueueing wp-jquery-ui-dialog
+  because themes or other plugins are pulling in jquery-ui from a CDN or their own
+  private copy... 
+
+  It might be useful to allow reverse and newest as parameters for
+  the detailed events list and simple events list. We had someone that
+  was listing art exhibits, and the current ones sort to the bottom :(
+
+  Date/Time formatting options on the widget screens, and the settings screen are non-
+  obvious. Do something like WordPress does on the Settings | General page.
+
+  Consider adding text-decoration underline to the simple list of events
+  items to indicate they are hot. Alternatively, add a hover tooltip inviting
+  the user to click. Or, twiddle the opacity a little to visually distinguish...
+
+  When on the shortcode insertion dialog, the tester found "Filter" confusing.
+  Add a one-sentence option underneath the dropdown, and perhaps a title 
+  attribute to the select options describing each shortcode in a brief sentence.
+
+* AddThis - Create a landing page for events without a link to provide a URL to AddThis.
+
+* Events filter doesn't do resources.
+
+* Display custom fields on events.
+
+* Modify public event creation to support custom fields.
+
+* Subscribe to Notifications Widget, Anonymous notifications and reminders.
+
+* Look at various scripts/css file and see if we can enqueue them at the bottom of the page.
+
+* Look at default Javascript in admin mode.
+
+At some point, make map url base a configuration option.
+
+
+####################################################################
+#	Release Checklist / Steps
+####################################################################
+
+
+Update CDailyPlugin::VERSION_NUMBER
+Verify CDailyPlugin::debugLogging is false.
+Search for non-commented debugOut statements and comment out or remove:
+	Search Expression:	^\s*\$this->.*debugOut\(
+
+Update version # in cdaily.php
+readme
+	*verify Release date and version history
+	*verify stable tag
+	*Verify Tested up to: is current TO MAJOR VERSION ONLY.
+
+Check SVN Status of files. Look for unadded files (?)
+
+>cd trunk
+>svn status 
+
+run test compile
+
+>cd trunk
+
+>./lint.sh
+
+Go to captions directory and run makeCaptions.sh
+
+Complete QA Testing Procedure
+
+	cdaily/docs/PluginTestPlan.odt
+
+--create new tag
+
+>svn cp trunk tags/x.x.x
+>cd tags
+>svn ci
+
+-- commit trunk
+
+>cd ../trunk
+>svn ci

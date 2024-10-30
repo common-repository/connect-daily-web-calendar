@@ -1,0 +1,11 @@
+p.wp-block-connect-daily-web-calendar-gblock {
+    background-image: url(../../ConnectDailyLogo.svg);
+    background-size: 128px;
+    background-repeat: no-repeat;
+    padding-top: 64px;
+}
+
+p#cdaily-gb-block {
+    font-size: 16px;
+    line-height: 18px;
+}
